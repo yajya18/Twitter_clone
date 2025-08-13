@@ -1,0 +1,91 @@
+{% load static %}
+<html>
+<head>
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .register-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            width: 380px; /* broader container */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .register-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #185a9d;
+            font-weight: 600;
+        }
+        form {
+            text-align: left;
+        }
+        form p {
+            margin-bottom: 15px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-top: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #185a9d;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: #104472;
+            transform: scale(1.02);
+        }
+        p {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        a {
+            color: #185a9d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="register-container">
+    <h2>Create Your Account</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a href="{% url 'login' %}">Login Here</a></p>
+</div>
+
+</body>
+</html>
