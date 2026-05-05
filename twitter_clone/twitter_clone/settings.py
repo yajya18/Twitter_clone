@@ -86,6 +86,8 @@ WSGI_APPLICATION = 'twitter_clone.wsgi.application'
 
 import dj_database_url
 
+print("DATABASE_URL =", os.environ.get("DATABASE_URL"))
+
 DATABASES = {
     'default': dj_database_url.config(
         default=f"sqlite:///{os.path.join(BASE_DIR, 'db.sqlite3')}",
