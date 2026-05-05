@@ -110,7 +110,7 @@
 <aside class="sidebar" aria-label="Primary Navigation">
   <div class="logo" role="img">🐦</div>
   <nav>
-    <a href="#"> Home</a>
+    <a href="{% url "tweet_list" %}"> Home</a>
     <a href="#"> Explore</a>
     <a href="#"> Notifications</a>
     <a href="#"> Messages</a>
@@ -141,7 +141,7 @@
       {% for tweet in tweets %}
       <div class="col-md-4 col-sm-6">
         <div class="tweet-card">
-          <img src="{{ tweet.photo.url }}" alt="Tweet image">
+          <img src= "{{tweet.photo.url}}" alt="Tweet image">
           <div class="p-3">
             <h5 class="fw-semibold text-primary">{{ tweet.user.username }}</h5>
             <p class="text-secondary">{{ tweet.text }}</p>
