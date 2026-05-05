@@ -84,15 +84,13 @@ WSGI_APPLICATION = 'twitter_clone.wsgi.application'
 # Use DATABASE_URL env var in production (PostgreSQL on Render),
 # fall back to SQLite for local development.
 
+if not os.environ.get("DATABASE_URL"):
+    raise Exception("DATABASE_URL is NOT SET")
+
 import dj_database_url
 
-print("DATABASE_URL =", os.environ.get("DATABASE_URL"))
-
 DATABASES = {
-    'default': dj_database_url.config(
-        default=f"sqlite:///{os.path.join(BASE_DIR, 'db.sqlite3')}",
-        conn_max_age=600
-    )
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 
